@@ -9,7 +9,7 @@ defmodule AdventOfCode.FuelCalculator do
    For a mass of 100756, the fuel required is 33583.
   """
 
-  def calculate_fuel([_ | _] = mass_list) do
+  def calculate_fuel(mass_list) when is_list(mass_list) do
     Enum.reduce(mass_list, 0, fn mass, total_fuel_needs ->
       total_fuel_needs + calculate_fuel(mass)
     end)
@@ -17,6 +17,15 @@ defmodule AdventOfCode.FuelCalculator do
 
   def calculate_fuel(mass) do
     fuel = (mass / 3) |> floor()
-    fuel - 2
+    fuel = fuel - 2
+    calculate_fuel(fuel, fuel)
+  end
+
+  defp calculate_fuel(mass, total_fuel_needs) when mass <= 0 do
+    0
+  end
+
+  defp calculate_fuel(mass, total_fuel_needs) do
+    total_fuel_needs + calculate_fuel(mass)
   end
 end
