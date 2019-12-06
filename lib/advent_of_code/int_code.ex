@@ -4,11 +4,8 @@ defmodule AdventOfCode.IntCode do
   end
 
   def calculate_code(int_code, pos) do
-    IO.inspect(int_code)
-
     case int_code
          |> Enum.slice(pos..(pos + 3))
-         |> IO.inspect()
          |> process_int_code(int_code) do
       {:ok, new_code} -> calculate_code(new_code, pos + 4)
       {:halt, new_code} -> new_code

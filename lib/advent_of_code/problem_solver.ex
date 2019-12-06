@@ -106,11 +106,11 @@ defmodule AdventOfCode.ProblemSolver do
     AdventOfCode.FuelCalculator.calculate_fuel(day_input)
   end
 
-  def solve_day(2) do
+  def solve_day(2, {noun, verb}) do
     day_input = [
       1,
-      12,
-      2,
+      noun,
+      verb,
       3,
       1,
       1,
@@ -243,7 +243,8 @@ defmodule AdventOfCode.ProblemSolver do
       0
     ]
 
-    AdventOfCode.IntCode.calculate_code(day_input)
+    [result | _] = AdventOfCode.IntCode.calculate_code(day_input)
+    result
   end
 
   def solve_day(day) do
