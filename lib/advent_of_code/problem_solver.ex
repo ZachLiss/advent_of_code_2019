@@ -856,7 +856,7 @@ defmodule AdventOfCode.ProblemSolver do
       "L288"
     ]
 
-    AdventOfCode.CrossedWires.calculate_nearest_intersection(path_1, path_2)
+    AdventOfCode.CrossedWires.calculate_shortest_distance_to_intersection(path_1, path_2)
   end
 
   def solve_day(day) do
